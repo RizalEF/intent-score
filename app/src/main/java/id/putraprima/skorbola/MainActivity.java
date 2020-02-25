@@ -42,13 +42,6 @@ public class MainActivity extends AppCompatActivity {
         awayteamname = findViewById(R.id.away_team);
         logoHome = findViewById(R.id.home_logo);
         logoAway = findViewById(R.id.away_logo);
-
-        //Fitur Main Activity
-        //1. Validasi Input Home Team
-        //2. Validasi Input Away Team
-        //3. Ganti Logo Home Team
-        //4. Ganti Logo Away Team
-        //5. Next Button Pindah Ke MatchActivity
     }
     @Override
     public void onActivityResult(int requestCode , int resultCode , @Nullable Intent data){
@@ -63,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver() , imageUri);
                     logoHome.setImageBitmap(bitmap);
                 }catch (IOException e){
-                    Toast.makeText(this , "Can ' t Load Image" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this , "Can't Load Image" , Toast.LENGTH_SHORT).show();
                 }
             }
         }if (requestCode == 2){
@@ -73,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver() , imageUri);
                     logoAway.setImageBitmap(bitmap);
                 }catch (IOException e){
-                    Toast.makeText(this , "Can ' t Load Image" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this , "Can't Load Image" , Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -81,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
     public void HandleProfil(View view){
         String homeTeam = hometeamname.getText().toString();
         String awayTeam = awayteamname.getText().toString();
-
-
 
         if  (!(homeTeam.equals("") && awayTeam.equals(""))){
             if (homeTeam.equals("")){
@@ -120,5 +111,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent , 2);
     }
-
 }
